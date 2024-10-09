@@ -4,7 +4,7 @@ import Link from 'next/link';
 import './listings-page.css';
 import dynamic from 'next/dynamic'
  
-const BusinessMap = dynamic(() => import('./BusinessMap.tsx'), { ssr: false });
+const BusinessMap = dynamic(() => import('./BusinessMap'), { ssr: false });
 
 
 
