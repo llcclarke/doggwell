@@ -428,3 +428,10 @@ button:hover {
     flex-basis: 100%;
     flex: 1; 
 }
+
+.logo-and-name{
+    display: flex;
+}
+.business-logo{
+    width:100px
+}

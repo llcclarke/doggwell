@@ -7,6 +7,13 @@ import dynamic from 'next/dynamic'
 const BusinessMap = dynamic(() => import('./BusinessMap'), { ssr: false });
 
 
+type Service = {
+  title: string;            // Updated key to lowercase
+  description: string;     // Updated key to lowercase
+  minimum_time: number;    // Updated key to lowercase
+  price: number;           // Updated key to lowercase
+};
+
 
 // Define the type for a grooming service
 type GroomingServiceProps = {
@@ -18,7 +25,7 @@ type GroomingServiceProps = {
   description: string;
   languages: [],
   sizes: ('small' | 'medium' | 'large')[];
-  services: [];
+  services: Service[];
   company_logo: string;
 };
 
@@ -109,19 +116,27 @@ export default function GroomingPage() {
           <section className="services-grid">
             {displayServices.map((service, index) => (
               <div key={index} className="service-card">
-                <img src={service.company_logo} alt={service.business_name} />
+                <div className="logo-and-name">
+                <img className="business-logo" src={service.company_logo} alt={service.business_name} />
                 <h3 className="business-name">{service.business_name}</h3>
+                </div>
                 <div className="service-price-duration">
                   <span className="service-price">{service.address}</span>
                 </div>
                 <p className="service-description">{service.description}</p>
-                <ul className="service-includes">
-                  {service.services.map((item, idx) => (
-                    <li key={idx} className="service-include-item">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+
+
+                <h2>Services Offered:</h2>
+      <ul className="service-includes">
+        {service.services.map((service, index) => (
+          <li key={index}>
+            <h3>{service.title}</h3> {/* Use lowercase title */}
+            <p>{service.description}</p> {/* Use lowercase description */}
+            <p>Minimum Time: {service.minimum_time} minutes</p> {/* Use lowercase minimum_time */}
+            <p>Price: ${service.price}</p> {/* Use lowercase price */}
+          </li>
+        ))}
+      </ul>
                 <ul className="service-includes">
                   Languages spoken
                   {service.languages.map((item, idx) => (

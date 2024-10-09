@@ -10,6 +10,12 @@ const pawIcon = new L.Icon({
   iconSize: [30, 30], // Adjust the size as needed
   iconAnchor: [15, 30],
 });
+type Service = {
+    title: string;            // Updated key to lowercase
+    description: string;     // Updated key to lowercase
+    minimum_time: number;    // Updated key to lowercase
+    price: number;           // Updated key to lowercase
+  };
 
 type Business = {
     business_id: number;
@@ -20,7 +26,7 @@ type Business = {
     description: string;
     languages: [],
     sizes: ('small' | 'medium' | 'large')[];
-    services: [];
+    services: Service[];
     company_logo: string;
 };
 
