@@ -25,3 +25,8 @@ body {
     text-wrap: balance;
   }
 }
+
+svg {
+  max-width: 100PX;
+  HEIGHT: AUTO;
+}

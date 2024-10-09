@@ -79,7 +79,7 @@
     "Website": "www.chicagroom.com",
     "sizes": [ "medium"],
     "company_logo": "https://static.tildacdn.net/tild6331-6530-4634-b935-343962636332/photo.svg",
-    "languages": ["German"],
+    "languages": ["German", "English"],
     "services": [
       {
         "title": "Haircut",
@@ -269,7 +269,7 @@
     "Website": "www.petstyleberlin.com",
     "sizes": ["small", "medium", "large", "XL"],
     "company_logo": "https://www.petinstyle.de/wp-content/uploads/2023/02/petinstyle-logo-2.png",
-    "languages": ["German", "German"],
+    "languages": ["German"],
     "services": [
       {
         "title": "Nail Clipping",

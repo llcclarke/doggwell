@@ -54,21 +54,22 @@ const CalendarBooking: React.FC<CalendarBookingProps> = ({ businessId, services 
     }
   };
 
+  const [isDivVisible, setIsDivVisible] = useState(false);
+
+
+
   const handleBooking = () => {
     if (selectedService && selectedTimeSlot && selectedDate) {
-      const bookingData = {
-        businessId,
-        service: selectedService.title,
-        date: selectedDate.toISOString().split('T')[0],
-        time: selectedTimeSlot,
-        duration: selectedService.minimum_time,
-        price: selectedService.price
-      };
-      console.log('Booking confirmed:', bookingData);
-      return (
-        <div>Booking confirmed for ${selectedService.title} at ${selectedTimeSlot} on ${selectedDate.toISOString().split('T')[0]}`);
-    
-    </div>)
+      setIsDivVisible(true);
+      // const bookingData = {
+      //   businessId,
+      //   service: selectedService.title,
+      //   date: selectedDate.toISOString().split('T')[0],
+      //   time: selectedTimeSlot,
+      //   duration: Math.ceil(selectedService.minimum_time / 10) * 10,
+      //   price: selectedService.price
+      // };
+      
 
     } else {
       alert('Please select a service and a time slot.');
@@ -80,17 +81,18 @@ const CalendarBooking: React.FC<CalendarBookingProps> = ({ businessId, services 
 
   return (
     <div className="calendar-module">
-
-<h3>Select a Service</h3>
+<div className="service-selector">
+<h3 className="select-title">Select a Service</h3>
 <select onChange={(e) => {
         const service = services.find(s => s.title === e.target.value);
         setSelectedService(service || null);
       }}>
-        <option value="">Select a service</option>
+        <option value="">Services</option>
         {services.map((service, index) => (
           <option key={index} value={service.title}>{service.title}</option>
         ))}
       </select>
+      </div>
       <h2>Select a Date</h2>
       <DatePicker
         selected={selectedDate}
@@ -99,6 +101,7 @@ const CalendarBooking: React.FC<CalendarBookingProps> = ({ businessId, services 
         placeholderText="Select a date"
         inline
       />
+
 
 {selectedDate && (
         <div>
@@ -114,7 +117,7 @@ const CalendarBooking: React.FC<CalendarBookingProps> = ({ businessId, services 
                     fontWeight: selectedTimeSlot === time ? 'bold' : 'normal'
                   }}
                 >
-                  {time} (Duration: {selectedService?.minimum_time || 0} mins)
+                  {time} (Duration: {(Math.ceil((selectedService?.minimum_time || 1) / 10) * 10)  || 0} mins)
                 </li>
               ))}
             </ul>
@@ -125,9 +128,15 @@ const CalendarBooking: React.FC<CalendarBookingProps> = ({ businessId, services 
       )}
 
       {selectedTimeSlot && selectedService && (
-        <div>
+        <div className='timeslot'>
           <h4>Selected Time Slot: {selectedTimeSlot}</h4>
           <button onClick={handleBooking}>Book Now</button>
+          {isDivVisible && (
+        <div className='timeslot'>
+          <h3>Thank you for booking!</h3>
+          <p> We will see you at {selectedTimeSlot} on for a {selectedService.title}.</p>
+        </div>
+      )}
         </div>
       )}
     </div>
