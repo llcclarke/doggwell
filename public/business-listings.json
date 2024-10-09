@@ -1,27 +1,340 @@
 [
+  {
+    "business_id": 1,
+    "business_name": "Dog Business 2",
+    "address": "Potsdamer Platz 1, 10785 Berlin",
+    "lat": 52.5096,
+    "long": 13.3769,
+    "description": "Basic grooming service for dogs over 35 pounds",
+    "languages": ["English", "German", "Woof"],
+    "sizes": ["large", "small"],
+    "services": [
       {
-        "business_id": 1,
-        "business_name": "Dog Business 2",
-        "address": "Potsdamer Platz 1, 10785 Berlin",
-        "lat":52.5096,
-        "long":13.3769,
-        "description": "Basic grooming service for dogs over 35 pounds",
-        "languages": ["English", "German", "Woof"],
-        "sizes": ["large", "small"],
-        "services":[
-          {
-              "title": "Haircut",
-              "description": "Full body breed-specific haircut",
-              "minimum_time": 58,
-              "price": 92
-          },
-          {
-              "title": "Nail Clipping",
-              "description": "Precise nail clipping for dogs",
-              "minimum_time": 10,
-              "price": 16
-          }],
-        "company_logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAABMlBMVEX////wgBP8/P4ANI1UZKn39/vw8PgaPIoANYwEP5P3gQAAMo7FyN4JOY1od645UZseQZTT1OeGkMAALInufQDd3uwAKIIAKIcAMIZncq7m5/EMNYfqdgCUnMPCxN+gp817hLkAI4hBVp2ors/jdgDJhmXEnZQwSJnZbgCpqsG2uddOX59wf7NbbKsAGISMlL/NwMi9nJ6wg3/d2ODIcDOxi4nDjnuzgXbHqaXeeBvOcizNtLiujJHVdiifl6yfn7zBt8bMeEPfhUWUhZnLfFGahI+ifIGkZj+qlqGzZj7PoJCgb2rKkHWoYUG7YiG0qLe1fWgACIKJRhiHhKeBg5gAFWY1O2cgNnO1ZDFZYYealp1qa4CIVUq5trlySkVEQ15WOzxqPCdxTFXDZgA1RHuBY2xXC2wtAAAMe0lEQVR4nO2a8XebRhLHMdIuGIEQCCQEAmSQQ4KEcSw7juw6tRvXjZMmTi9NncRJ02ty//+/cLO7gFDS9qK07/z83n5/iImMl/kws7MzuxIELi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4urq+XiF0Xo+u24p8R3r67s3N3271uO/4BibNbu0NLGe7uGeJ12/K3Nbs3VhRrbCnz/dl12/J3he/PLeXg1uGtuTL/5qZHmrtpKUfb9oNvH91Wdo9veBaYnSjWDnow/u7hc8vaueGuAZjhHtpXrNOHR8rR8c3OAbNNRTlVH46to+83FevsZscZvjtXrJOzH5T5o1tj5dy+bnv+nux9SGeQnE+PD+fK7ePrNuerBVUMyLi7uXt0sHmItyEXPLpum75OeLZ9//G9e/ce3z9Otw+3Zwimj6U8wddt11cIGfc3d+cWaDg/ubdNEewfLeXpDZw0+GITSNaogOfgMWFwH4+VZ8Z1m7ay0MVuiVLwPAcaDOnsQ3Ddtq0s41xZW5b13CUw1u30um1bVeibYeWS0kHjuyLxzDCmd4ioEq0Jih9C7Zf0008GXrl+gKFEcfGfskNEGC8PVTwJLdnBZLxijrHmJ7sHJdapTTwzvENuwKNE15Mo0kEZFsRRkrRZZgj0iEjXI98edJJwgSPaebPZDlbiwfnIzGPVZaOo7eZAJRd2PomWIgSFPoyL1HzQDpfKR/j0+Db1h/LqRZyGZ7sM5ugQYNYYDEp9P9YbjUEah2Ce/ZOsbfj0iYbpjySn4aexEW+sd9t48bzORuaberxKQWRs9ZIsi5o+sRDlPa8/IBd+n10QFzHogSkKrtnq5P5gVKNxL2bCxb/O52D+7RfkVmNnTGnmt+zKM1SDhpyXz9T0xCztNiZyC9wkxq1Oa1Sajny5OwUfxs1V0qHa90zXtdNJRvKP6SSRLtKxJK9JIULmejzwIVqcDXCXPVhEg/jzy1/wzy8vzy1wDM1cxj6bNuPH9uMlmKYsm+wq3dAmWVa+EQJjFDBmOXCgy12C4bb9FVxj9L2cxKWrT5HgTp1k1HPJyJrkESrBjnQa3W4WCrHk6NSYrFoK3ddy782VLL1ds5RnJEDR8alVeuaeZY0XsQowIzYD/L7czvVyDCPyuuonMMjU5ITeHGYr9EQEho4QaAa8c0cP+8SmNJG8Do0aXaOOdpsxmjrOiFzbzWL1QO/evfbkK4D59Ye3c5qG7W/GRTI4hArAur1YZwBmymCmrcYo7qgVjNaFu8S0BuMOZDmjV2q0QpwZfYd6RsBJDB53IlUm2VTVPalB3kkQJSn1XJTamdcPKcM0ZAn2zcfX7y9fvrt4efnbR+kH63sY5cFukdlODKjNrA9q9aRmQ56iEitX2bAFjEph1isYO5MbDMZuLkb4AhjPZ5bpIYzrRLZu0hfiSX06LQcZjVo3CuyJ1/PpH+XMme5rR/rl6urN1b9f/a55T6F7Qd+elwvNHp6dWvVyZgGTyLJvR3lhuBpp/T+AkSN6hbP0y7NzBYOTUAgSp4kHE5GM5kkbBskEpjkl4WbrKoFhUzgc0VSEr5z1yzdXnvTbh7fOLwfW8EXplzXoNoXtA0s5X0R8s9EoYPqaFuLBAC9gSDAGNRh30NASeo3a8VfA2HIgpJIzEM11TLKII/VTstyFcUQMMnTVHXgee10xgxG2L73L99K6JP367O0zCK3hsGQ5uCOgQ+jSnixyEcC0mX1bWidGI939cxg0ktc3aIYQp18DM5pgIdZ6IzEm4YWnEGYheUWpmpBQMWAimrLUp/cGPoMR3129v5RAl2/n9erMOnoAfwprpnK2sKSCwVtakgp+y17AkHkRNBYwQtjRuiH79QpNRAGD4kYAq67Xy0V1IyC50ZN6OQm3AGaLwLJKLEkbNDuJ1fvGVxKV9/t8gTI+vYAh3XvW2rDWaVYwNqyZqhC3ipmt6jQBCIG83irnEckKcrbybgiBgTrI1yBBId/phaJLPCL6nkTyMCQTnJF0p0Y2rDWely07/d1HjcJol7sly/hgn5o5O1XW6nsABIY6VN3S4M0EWhE/JYy6XoMRTU3TVq64ja6WG3EzIjUQFADdWETaFD4PYdWEekaFcmI6gKemEwjxEFyw3KC8++gADYTa+6OC5WCH7f+jw6OlZLaAIQWADZPQXMBQ32s1GOIabZX1kv1RS4qazZzu2EO54sCwzQliq2aTLPau4OsIUjRUu1DTeN5k6Qn4wcePH39/9fRt6Rhr96Io5siUeV67uSkXMGFfhlHdbIAqGLWAqdUuYUPrhCv2AEbLG6Q2GwNSmAbD0jwT6FDPCGIIz08bNlzQTGp0PFb9VEKzO/+Z17vMtdNtesNsU1mzdmphX8HkXQ04UDv5SxjUbmnRCgsmhel6lW/tzCGZKyQFDFk1OwjlUMcakLRFn03eeEvSl0MZvSgSmaVYRSdDNmXR8ZEFU6YGXsGMWlpbJEzuZzC1fkawO5rcXi3Q7JazgJk4pPwLeqQ0nkA9g9HIJzUopIh8yu7Jet5kqVqKDxiL8uHJuKB5BbahneGaclI/oanmTLtBy+e4ayzDdJZhhBQW11VqZgLjVZ2FHTlkRrgNn5UAPRtnUKiJWQarWAGDO55j1jbD7B1GoOweuw+HxfVJIBx/gCjbr++aVTATWSONjaoFfw0jmn2ts1JGsxsL2wzdi/wwNEkNhdsAY7hNMpjZApiiFxHUlifXFuU7R6zLPICZgh4WvlHOU+hqrNuHddsqGF1eH8RxbDbyv4aBuqzRaK6y8VaHUTueFE2yiQSTHY0AJrDpFIy3MBr4xU3IdJxJ9QS8xyr+8S3aqV4cFTTPxqQ+WzoHLGHERJMSHbp+efA/YOAjrbtKoMGcqcE4IxchZMICKeYAExsRMVvdMlDml3saduT1KtcYmxYr+LcZ28VBMW8o4NLebAmDOloSui52B6z9+kMYNj42od5cwTU1GDHVevQ9xAkM7kuS49OlUsCNGDVh8sQqeQbye061nKknDGazcAI+/K7M09ayY6pshjWNVntCvoELmNZnMIZagvZXWGxs2RmVMLHTpaMFpJCAQswzQ7awRSaKUsj8LO/B1JLLhHZcwpTvD98vIm1tfnd501wvYGxNYy1zuEFHUZPPYUSTdQvYlBvNL997r8GgsOfQ+DE6Pls1pyZrdEdNBNWmOGVFrTt1emXHVMKcbpcD4vvF1tn43nKARBrrZwxZY9V/0KepKkgWYeZXMEV5kMJi8+VxBmFWwfg9jbXICVgNjbOXFdM+lV2SCfIMs/ucnl/AqJvWJ24QCz74bH/JDIChC28gaxG92WiZfwYj+IU/jKI/+GKYcs7gvCfR1I+bEA8GlABRxHZX7X5A9hXChN4phr0Kxn5eTJCTsiS7OF20Ajt1Gggz6pnU0ybMwx3a5sPL/xwmLjZvoH/e+PK995pn8KjHtkzQCHKvCyVAWbogOSfZWO3QccEz/TKdoUfzsh87iw0juLNfK9Ss4VmtHEk0tgcQylpW7Dron8JUxUjxKAqzgmcaFYw7cBIG40O6gQoZSs1ioGaTpDU0iGgUtp1GVdGkp+WxjDL88Gw+LAs09qNOkxRzBjoVtvEiTFo0d2rr/bIFqDpNnBWLUKS1Vpoz0xIGSjNqpBh3yHQHmKgYKO/Tti/o5qKIIcoWe8K4XPVrpSaJuoNPaZBcwExluc0+mtI2n8Ckn8IIMQVEvtxaoeE0+v0Sxk56SVH7NWCuwErvZMWvgp9YdgmdUTztalntZRlnS+dMzC278UWx3gz3intxq4AZVDD+ViBiHMpSN8QYQZg12jY943URKWUMjFO921nhuModtcuNdnc0KbbEXRPCSx21zXIg3I4Lqmm7bcZLhXnwZLx81GSNN++IZVKzxhfFEFqrRXvLZr9fwKQ/xep01Gw1unq7rbpwoenkiKM5MMhsSdqDjjZZYXOG7PJXd2O7jB56BlP7jVAdyoifn8+oZ7tWhWMp45M9snyj7VNyBGX9WNQBYuqH1O/xaFS8Izc3jJzJ9A1R9X2fXOa5T49EYz/3U/v//YUV+2J/d6xQDeebe8fMceL2ZnG4uSyIrOqS/lMenAkiVe3w61q+eYOM40c7T5+eP32+dzhzK1NmPw4/Z7kBQtidgT75nuns7o3/MmBNN/tLTVxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcN0P/BaKpTd7ypkfaAAAAAElFTkSuQmCC"
+        "title": "Haircut",
+        "description": "Full body breed-specific haircut",
+        "minimum_time": 58,
+        "price": 92
+      },
+      {
+        "title": "Nail Clipping",
+        "description": "Precise nail clipping for dogs",
+        "minimum_time": 10,
+        "price": 16
       }
-    
+    ],
+    "company_logo": 
+    "data:image/png;base64,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"
+  },
+  {
+    "business_id": 2,
+    "business_name": "Paws & Tails",
+    "address": "Karl-Liebknecht-Str. 29, 10178 Berlin",
+    "lat": 52.5296,
+    "long": 13.4013,
+    "description": "High-end grooming services tailored to your pet's needs.",
+    "Website": "www.paws&tails.com",
+    "sizes": ["small"],
+    "company_logo": "/images/Dog_Paw_Print.png",
+    "languages": ["German"],
+    "services": [
+      {
+        "title": "Haircut",
+        "description": "Full body breed-specific haircut",
+        "minimum_time": 72,
+        "price": 75
+      },
+      {
+        "title": "Nail Clipping",
+        "description": "Precise nail clipping for dogs",
+        "minimum_time": 13,
+        "price": 23
+      },
+      {
+        "title": "Bathing",
+        "description": "Full bath and blowdry for your pet",
+        "minimum_time": 63,
+        "price": 113
+      },
+      {
+        "title": "Teeth Cleaning",
+        "description": "Teeth cleaning to prevent plaque buildup",
+        "minimum_time": 23,
+        "price": 35
+      },
+      {
+        "title": "Creative Grooming",
+        "description": "Creative styling for a unique look",
+        "minimum_time": 134,
+        "price": 116
+      }
     ]
+  },
+  {
+    "business_id": 3,
+    "business_name": "CHICA GROOM",
+    "address": "Alexanderplatz 3, 10178 Berlin",
+    "lat": 52.5219,
+    "long": 13.4132,
+    "description": "High-end grooming services tailored to your pet's needs.",
+    "Website": "www.chicagroom.com",
+    "sizes": [ "medium"],
+    "company_logo": "www.chicagroom.com/logo.png",
+    "languages": ["German"],
+    "services": [
+      {
+        "title": "Haircut",
+        "description": "Full body breed-specific haircut",
+        "minimum_time": 69,
+        "price": 117
+      },
+      {
+        "title": "Nail Clipping",
+        "description": "Precise nail clipping for dogs",
+        "minimum_time": 20,
+        "price": 14
+      },
+      {
+        "title": "Bathing",
+        "description": "Full bath and blowdry for your pet",
+        "minimum_time": 82,
+        "price": 97
+      },
+      {
+        "title": "Teeth Cleaning",
+        "description": "Teeth cleaning to prevent plaque buildup",
+        "minimum_time": 25,
+        "price": 36
+      },
+      {
+        "title": "Creative Grooming",
+        "description": "Creative styling for a unique look",
+        "minimum_time": 113,
+        "price": 109
+      }
+    ]
+  },
+  {
+    "business_id": 4,
+    "business_name": "Fancy Groomers",
+    "address": "Rosenthaler Str. 40-41, 10178 Berlin",
+    "lat": 52.5291,
+    "long": 13.4017,
+    "description": "High-end grooming services tailored to your pet's needs.",
+    "Website": "www.fancygroomers.com",
+    "sizes": ["large"],
+    "company_logo": "www.fancygroomers.com/logo.png",
+    "languages": [ "French"],
+    "services": [
+      {
+        "title": "Haircut",
+        "description": "Full body breed-specific haircut",
+        "minimum_time": 50,
+        "price": 78
+      },
+      {
+        "title": "Nail Clipping",
+        "description": "Precise nail clipping for dogs",
+        "minimum_time": 19,
+        "price": 28
+      },
+      {
+        "title": "Bathing",
+        "description": "Full bath and blowdry for your pet",
+        "minimum_time": 84,
+        "price": 84
+      },
+      {
+        "title": "Teeth Cleaning",
+        "description": "Teeth cleaning to prevent plaque buildup",
+        "minimum_time": 23,
+        "price": 26
+      },
+      {
+        "title": "Creative Grooming",
+        "description": "Creative styling for a unique look",
+        "minimum_time": 119,
+        "price": 175
+      }
+    ]
+  },
+  {
+    "business_id": 5,
+    "business_name": "Poodle Palace",
+    "address": "Friedrichstraße 123, 10117 Berlin",
+    "lat": 52.5071,
+    "long": 13.3902,
+    "description": "High-end grooming services tailored to your pet's needs.",
+    "Website": "www.poodlepalace.com",
+    "sizes": ["small", "large"],
+    "company_logo": "www.poodlepalace.com/logo.png",
+    "languages": ["German", "Spanish"],
+    "services": [
+      {
+        "title": "Haircut",
+        "description": "Full body breed-specific haircut",
+        "minimum_time": 58,
+        "price": 97
+      },
+      {
+        "title": "Nail Clipping",
+        "description": "Precise nail clipping for dogs",
+        "minimum_time": 18,
+        "price": 29
+      },
+      {
+        "title": "Bathing",
+        "description": "Full bath and blowdry for your pet",
+        "minimum_time": 80,
+        "price": 109
+      },
+      {
+        "title": "Teeth Cleaning",
+        "description": "Teeth cleaning to prevent plaque buildup",
+        "minimum_time": 15,
+        "price": 29
+      },
+      {
+        "title": "Creative Grooming",
+        "description": "Creative styling for a unique look",
+        "minimum_time": 104,
+        "price": 112
+      }
+    ]
+  },
+  {
+    "business_id": 6,
+    "business_name": "Furry Friends Grooming",
+    "address": "Unter den Linden 77, 10117 Berlin",
+    "lat": 52.5163,
+    "long": 13.3781,
+    "description": "High-end grooming services tailored to your pet's needs.",
+    "Website": "www.furryfriendsgrooming.com",
+    "sizes": ["small", "medium", "large"],
+    "company_logo": "www.furryfriendsgrooming.com/logo.png",
+    "languages": ["German", "Italian"],
+    "services": [
+      {
+        "title": "Haircut",
+        "description": "Full body breed-specific haircut",
+        "minimum_time": 58,
+        "price": 92
+      },
+      {
+        "title": "Nail Clipping",
+        "description": "Precise nail clipping for dogs",
+        "minimum_time": 10,
+        "price": 16
+      },
+      {
+        "title": "Creative Grooming",
+        "description": "Creative styling for a unique look",
+        "minimum_time": 106,
+        "price": 135
+      }
+    ]
+  },
+  {
+    "business_id": 7,
+    "business_name": "Pawsome Groomers",
+    "address": "Potsdamer Platz 1, 10785 Berlin",
+    "lat": 52.5096,
+    "long": 13.3769,
+    "description": "High-end grooming services tailored to your pet's needs.",
+    "Website": "www.pawsomegroomers.com",
+    "sizes": ["small", "medium", "large", "XL"],
+    "company_logo": "www.pawsomegroomers.com/logo.png",
+    "languages": ["German", "English"],
+    "services": [
+      {
+        "title": "Haircut",
+        "description": "Full body breed-specific haircut",
+        "minimum_time": 63,
+        "price": 103
+      },
+      {
+        "title": "Creative Grooming",
+        "description": "Creative styling for a unique look",
+        "minimum_time": 90,
+        "price": 143
+      }
+    ]
+  },
+  {
+    "business_id": 8,
+    "business_name": "PetStyle Berlin",
+    "address": "Kurfürstendamm 234, 10719 Berlin",
+    "lat": 52.5029,
+    "long": 13.3296,
+    "description": "High-end grooming services tailored to your pet's needs.",
+    "Website": "www.petstyleberlin.com",
+    "sizes": ["small", "medium", "large", "XL"],
+    "company_logo": "www.petstyleberlin.com/logo.png",
+    "languages": ["German", "German"],
+    "services": [
+      {
+        "title": "Nail Clipping",
+        "description": "Precise nail clipping for dogs",
+        "minimum_time": 13,
+        "price": 22
+      },
+      {
+        "title": "Teeth Cleaning",
+        "description": "Teeth cleaning to prevent plaque buildup",
+        "minimum_time": 18,
+        "price": 18
+      }
+    ]
+  },
+  {
+    "business_id": 9,
+    "business_name": "Woof & Co Grooming",
+    "address": "Schönhauser Allee 10, 10435 Berlin",
+    "lat": 52.5377,
+    "long": 13.4015,
+    "description": "High-end grooming services tailored to your pet's needs.",
+    "Website": "www.woof&cogrooming.com",
+    "sizes": ["small", "medium", "large", "XL"],
+    "company_logo": "www.woof&cogrooming.com/logo.png",
+    "languages": ["German", "French"],
+    "services": [
+      {
+        "title": "Creative Grooming",
+        "description": "Creative styling for a unique look",
+        "minimum_time": 127,
+        "price": 130
+      }
+    ]
+  },
+  {
+    "business_id": 10,
+    "business_name": "Fluff & Shine",
+    "address": "Mehringdamm 32, 10961 Berlin",
+    "lat": 52.4939,
+    "long": 13.3873,
+    "description": "High-end grooming services tailored to your pet's needs.",
+    "Website": "www.fluff&shine.com",
+    "sizes": ["small", "medium", "large", "XL"],
+    "company_logo": "www.fluff&shine.com/logo.png",
+    "languages": ["German", "Spanish"],
+    "services": [
+      {
+        "title": "Bathing",
+        "description": "Full bath and blowdry for your pet",
+        "minimum_time": 49,
+        "price": 126
+      },
+      {
+        "title": "Teeth Cleaning",
+        "description": "Teeth cleaning to prevent plaque buildup",
+        "minimum_time": 21,
+        "price": 35
+      },
+      {
+        "title": "Creative Grooming",
+        "description": "Creative styling for a unique look",
+        "minimum_time": 91,
+        "price": 158
+      }
+    ]
+  }
+]

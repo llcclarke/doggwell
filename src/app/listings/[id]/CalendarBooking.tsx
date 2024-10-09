@@ -4,20 +4,26 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 // Mock data for services
-const servicesData = [
-  { id: 1, title: "Service A", duration: 30, price: 50 },
-  { id: 2, title: "Service B", duration: 45, price: 75 },
-];
-type CalendarBookingProps = {
-  businessId: number; // Define your prop types here
+type Service = {
+  title: string;
+  description: string;
+  minimum_time: number;
+  price: number;
 };
 
-const CalendarBooking: React.FC<CalendarBookingProps> = ({ businessId }) => {
+
+type CalendarBookingProps = {
+  businessId: number; // Define your prop types here
+  services: Service[];  // Services specific to the business
+};
+
+const CalendarBooking: React.FC<CalendarBookingProps> = ({ businessId, services }) => {
   const [availableSlots, setAvailableSlots] = useState<{ [key: string]: string[] }>({});
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [timeSlots, setTimeSlots] = useState<string[]>([]);
-  const [selectedService, setSelectedService] = useState<{ id: number; title: string; duration: number; price: number } | null>(null);
-  
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<string | null>(null); // To store selected time slot
+
   // Fetch available slots from static JSON file
   useEffect(() => {
     const fetchAvailableSlots = async () => {
@@ -48,23 +54,41 @@ const CalendarBooking: React.FC<CalendarBookingProps> = ({ businessId }) => {
     }
   };
 
-  // Handle service selection
-  const handleServiceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const serviceId = Number(event.target.value);
-    const selected = servicesData.find(service => service.id === serviceId) || null;
-    setSelectedService(selected);
+  const handleBooking = () => {
+    if (selectedService && selectedTimeSlot && selectedDate) {
+      const bookingData = {
+        businessId,
+        service: selectedService.title,
+        date: selectedDate.toISOString().split('T')[0],
+        time: selectedTimeSlot,
+        duration: selectedService.minimum_time,
+        price: selectedService.price
+      };
+      console.log('Booking confirmed:', bookingData);
+      return (
+        <div>Booking confirmed for ${selectedService.title} at ${selectedTimeSlot} on ${selectedDate.toISOString().split('T')[0]}`);
+    
+    </div>)
+
+    } else {
+      alert('Please select a service and a time slot.');
+    }
   };
+
+  // Handle service selection
+  
 
   return (
     <div className="calendar-module">
 
 <h3>Select a Service</h3>
-      <select onChange={handleServiceChange}>
+<select onChange={(e) => {
+        const service = services.find(s => s.title === e.target.value);
+        setSelectedService(service || null);
+      }}>
         <option value="">Select a service</option>
-        {servicesData.map(service => (
-          <option key={service.id} value={service.id}>
-            {service.title} - {service.price}$
-          </option>
+        {services.map((service, index) => (
+          <option key={index} value={service.title}>{service.title}</option>
         ))}
       </select>
       <h2>Select a Date</h2>
@@ -76,20 +100,34 @@ const CalendarBooking: React.FC<CalendarBookingProps> = ({ businessId }) => {
         inline
       />
 
-      {selectedDate && selectedService && (
+{selectedDate && (
         <div>
-          <h3>Available Time Slots:</h3>
+          <h3>Available Time Slots for {selectedService?.title || "selected service"}:</h3>
           {timeSlots.length > 0 ? (
             <ul>
               {timeSlots.map((time, index) => (
-                <li key={index}>
-                  {time} (Duration: {selectedService.duration} mins)
+                <li
+                  key={index}
+                  onClick={() => setSelectedTimeSlot(time)} // Select the time slot on click
+                  style={{
+                    cursor: 'pointer',
+                    fontWeight: selectedTimeSlot === time ? 'bold' : 'normal'
+                  }}
+                >
+                  {time} (Duration: {selectedService?.minimum_time || 0} mins)
                 </li>
               ))}
             </ul>
           ) : (
             <p>No available slots for this day.</p>
           )}
+        </div>
+      )}
+
+      {selectedTimeSlot && selectedService && (
+        <div>
+          <h4>Selected Time Slot: {selectedTimeSlot}</h4>
+          <button onClick={handleBooking}>Book Now</button>
         </div>
       )}
     </div>

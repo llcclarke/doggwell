@@ -3,12 +3,25 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import './listings-page.css';
 import dynamic from 'next/dynamic'
+
  
 const BusinessMap = dynamic(() => import('./BusinessMap'), { ssr: false });
 
 
+
+type ServiceTitle = 'Haircut' | 'Nail Clipping' | 'Bathing' | 'Teeth Cleaning' | 'Creative Grooming';
+
+// const SERVICE_OPTIONS: ServiceTitle[] = [
+//   'Haircut',
+//   'Nail Clipping',
+//   'Bathing',
+//   'Teeth Cleaning',
+//   'Creative Grooming'
+// ];
+
+
 type Service = {
-  title: string;            // Updated key to lowercase
+  title: ServiceTitle;            // Updated key to lowercase
   description: string;     // Updated key to lowercase
   minimum_time: number;    // Updated key to lowercase
   price: number;           // Updated key to lowercase
@@ -34,7 +47,8 @@ type GroomingServiceProps = {
 export default function GroomingPage() {
   const [services, setServices] = useState<GroomingServiceProps[]>([]); 
   const [selectedSize, setSelectedSize] = useState<'all' | 'small' | 'medium' | 'large'>('all');
-
+  const [selectedService, setSelectedService] = useState<ServiceTitle | null>(null);
+  // const [open, setOpen] = useState(false);
   // Fetch services data from the JSON file
   useEffect(() => {
     const fetchServices = async () => {
@@ -54,10 +68,11 @@ export default function GroomingPage() {
   }
 
   // CHANGED: Filter services by size within each service object
-  const displayServices = selectedSize === 'all'
-  ? services
-  : services.filter(service => 
-    Array.isArray(service.sizes) && service.sizes.includes(selectedSize));
+  const displayServices = services.filter(service => {
+    const sizeMatch = selectedSize === 'all' || service.sizes.includes(selectedSize);
+    const serviceMatch = !selectedService || service.services.some(s => s.title === selectedService);
+    return sizeMatch && serviceMatch;
+  });
 
   return (
     <div className="grooming-page">
@@ -85,33 +100,81 @@ export default function GroomingPage() {
             </p>
           </section>
 
-          <section className="size-filter">
-            Filters TBD
-            <button 
-              className={`filter-button ${selectedSize === 'all' ? 'active' : ''}`}
-              onClick={() => setSelectedSize('all')}
-            >
-              All Sizes
-            </button>
-            <button 
-              className={`filter-button ${selectedSize === 'small' ? 'active' : ''}`}
-              onClick={() => setSelectedSize('small')}
-            >
-              Small Dogs
-            </button>
-            <button 
-              className={`filter-button ${selectedSize === 'medium' ? 'active' : ''}`}
-              onClick={() => setSelectedSize('medium')}
-            >
-              Medium Dogs
-            </button>
-            <button 
-              className={`filter-button ${selectedSize === 'large' ? 'active' : ''}`}
-              onClick={() => setSelectedSize('large')}
-            >
-              Large Dogs
-            </button>
+
+          <section className="filters">
+            <div className="filter-group">
+              <h3>Filter by Size:</h3>
+              <div className="filter-buttons">
+                <button 
+                  className={`filter-button ${selectedSize === 'all' ? 'active' : ''}`}
+                  onClick={() => setSelectedSize('all')}
+                >
+                  All Sizes
+                </button>
+                <button 
+                  className={`filter-button ${selectedSize === 'small' ? 'active' : ''}`}
+                  onClick={() => setSelectedSize('small')}
+                >
+                  Small Dogs
+                </button>
+                <button 
+                  className={`filter-button ${selectedSize === 'medium' ? 'active' : ''}`}
+                  onClick={() => setSelectedSize('medium')}
+                >
+                  Medium Dogs
+                </button>
+                <button 
+                  className={`filter-button ${selectedSize === 'large' ? 'active' : ''}`}
+                  onClick={() => setSelectedSize('large')}
+                >
+                  Large Dogs
+                </button>
+              </div>
+            </div>
+
+            <div className="filter-group">
+              <h3>Filter by Service:</h3>
+              <div className="filter-buttons">
+                {/* <button 
+                  className={`filter-button ${selectedService === 'all' ? 'active' : ''}`}
+                  onClick={() => setSelectedService('all')}
+                >
+                  All Services
+                </button> */}
+                <button 
+                  className={`filter-button ${selectedService === 'Haircut' ? 'active' : ''}`}
+                  onClick={() => setSelectedService('Haircut')}
+                >
+                  Haircut
+                </button>
+                <button 
+                  className={`filter-button ${selectedService === 'Nail Clipping' ? 'active' : ''}`}
+                  onClick={() => setSelectedService('Nail Clipping')}
+                >
+                  Nail Clipping
+                </button>
+                <button 
+                  className={`filter-button ${selectedService === 'Bathing' ? 'active' : ''}`}
+                  onClick={() => setSelectedService('Bathing')}
+                >
+                  Bathing
+                </button>
+                <button 
+                  className={`filter-button ${selectedService === 'Teeth Cleaning' ? 'active' : ''}`}
+                  onClick={() => setSelectedService('Teeth Cleaning')}
+                >
+                  Teeth Cleaning
+                </button>
+                <button 
+                  className={`filter-button ${selectedService === 'Creative Grooming' ? 'active' : ''}`}
+                  onClick={() => setSelectedService('Creative Grooming')}
+                >
+                  Creative Grooming
+                </button>
+              </div>
+            </div>
           </section>
+
 <div className='double-page-split'>
           <section className="services-grid">
             {displayServices.map((service, index) => (

@@ -70,7 +70,7 @@ console.log(listing);
       </ul>
     </div>
     
-    <CalendarBooking businessId={listing.business_id} />
+    <CalendarBooking businessId={listing.business_id} services={listing.services} />
   </div>
   );
 };
