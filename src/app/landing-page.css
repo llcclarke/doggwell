@@ -1,0 +1,244 @@
+
+/* Base styles */
+.landing-page {
+    min-height: 100vh;
+    background-color: #f9fafb;
+  }
+  
+  /* Header styles */
+  .header {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: #3b82f6;
+  }
+  
+  .brand-name {
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .brand-accent {
+    color: #3b82f6;
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .nav-link:hover {
+    color: #3b82f6;
+  }
+  
+  /* Main content styles */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+  }
+  
+  .hero-section {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #111827;
+  }
+  
+  .hero-accent {
+    display: block;
+    margin-top: 0.5rem;
+    color: #3b82f6;
+  }
+  
+  .hero-subtitle {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: #6b7280;
+  }
+  
+  /* Services grid styles */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  @media (min-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .service-card {
+    position: relative;
+    border-radius: 0.5rem;
+    border: 2px solid #e5e7eb;
+    padding: 1.5rem;
+    background-color: white;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+  }
+  
+  .service-card.active:hover {
+    border-color: #3b82f6;
+    transform: scale(1.02);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-card.disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+  }
+  
+  .coming-soon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #fbbf24;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transform: rotate(12deg);
+  }
+  
+  .service-icon {
+    height: 2rem;
+    width: 2rem;
+    color: #3b82f6;
+  }
+  
+  .service-title {
+    margin-top: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
+  .service-description {
+    margin-top: 0.5rem;
+    color: #6b7280;
+  }
+  
+  .service-cta {
+    margin-top: 0.5rem;
+    color: #3b82f6;
+    font-weight: 500;
+  }
+  
+  /* Featured section styles */
+  .featured-section {
+    text-align: center;
+  }
+  
+  .featured-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  
+  .title-underline {
+    border-bottom: 4px solid #3b82f6;
+    padding-bottom: 0.5rem;
+  }
+  
+  .featured-card {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .featured-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .star-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    color: #fbbf24;
+  }
+  
+  .featured-subtitle {
+    color: #6b7280;
+    margin-bottom: 1rem;
+  }
+  
+  .rating {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial {
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+  }
+  
+  .book-button {
+    width: 100%;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+  }
+  
+  .book-button:hover {
+    background-color: #2563eb;
+  }
+  
+  .bone-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-right: 0.5rem;
+  }
+  
+  

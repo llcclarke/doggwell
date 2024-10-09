@@ -1,100 +1,101 @@
-import Image from "next/image";
+'use client';
+import React from 'react';
+import Link from 'next/link';
+import './landing-page.css';
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="landing-page">
+      <header className="header">
+        <div className="header-container">
+          Logo
+            <h1 className="brand-name">
+              Future Brand name
+            </h1>
+          <nav className="nav-menu">
+            <Link href="#" className="nav-link">About Us</Link>
+            <Link href="#" className="nav-link">Contact</Link>
+          </nav>
+        </div>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <main className="main-content">
+        <div className="container">
+          <section className="hero-section">
+            <h2 className="hero-title">
+              Time For A 
+              <span className="hero-accent">Pupgrade!</span>
+            </h2>
+            <p className="hero-subtitle">
+              Because every good boy (and girl) deserves to look their best! 🐾
+            </p>
+          </section>
+
+          <section className="services-grid">
+            <Link href="/listings" className="service-card active">
+              <div className="service-content">
+                <svg className="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 4v10.54a4 4 0 1 1-2-3.46V4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2.5"/>
+                  <path d="M4 4v10.54a4 4 0 1 0 2-3.46V4a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2.5"/>
+                </svg>
+                <h3 className="service-title">Grooming Time!</h3>
+                <p className="service-description">From scruffy to fluffy in no time! Professional pampering for your pooch.</p>
+                <p className="service-cta">Book appointment →</p>
+              </div>
+            </Link>
+            
+            <div className="service-card disabled">
+              <div className="coming-soon">Coming Soon!</div>
+              <div className="service-content">
+                <svg className="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+                <h3 className="service-title">Training Academy</h3>
+                <p className="service-description">Soon your pup can learn new tricks! Stay tuned for tail-wagging classes.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="featured-section">
+            <h3 className="featured-title">
+              <span className="title-underline">Top Dog of the Week</span>
+            </h3>
+            <div className="featured-card">
+              <div className="featured-header">
+                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <h4 className="featured-title">Pawsome Grooming</h4>
+              </div>
+              <p className="featured-subtitle">Where Every Pup Gets the VIP Treatment!</p>
+              <div className="rating">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </div>
+              <p className="testimonial">
+                They made my scruffy buddy look like a million bones! 🐾 - Happy Customer
+              </p>
+              <button className="book-button">
+                <svg className="bone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M8 3a4 4 0 0 0-4 4 7 7 0 0 0 7 7 7 7 0 0 0 7-7 4 4 0 0 0-4-4 4 4 0 0 0-3 1.4A4 4 0 0 0 8 3z"/>
+                  <path d="M16 21a4 4 0 0 0 4-4 7 7 0 0 0-7-7 7 7 0 0 0-7 7 4 4 0 0 0 4 4 4 4 0 0 0 3-1.4A4 4 0 0 0 16 21z"/>
+                </svg>
+                Book Now
+              </button>
+            </div>
+          </section>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="footer">
+        <div className="footer-content">
+          <p className="footer-tagline">Every tail we groom has a happy ending! 🐾</p>
+          <p className="footer-subtitle">We make your furry friend the talk of the dog park.</p>
+        </div>
       </footer>
     </div>
   );
