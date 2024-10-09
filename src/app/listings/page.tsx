@@ -2,6 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import './listings-page.css';
+// import BusinessMap from './BusinessMap.tsx';
+
+import dynamic from 'next/dynamic'
+ 
+const BusinessMap = dynamic(
+  () => import('./BusinessMap.tsx'),
+  { ssr: false }
+)
 
 
 // Define the type for a grooming service
@@ -9,10 +17,13 @@ type GroomingServiceProps = {
   business_id: number;
   business_name: string;
   address: string;
+  lat:number;
+  long:number;
   description: string;
   languages: [],
   sizes: ('small' | 'medium' | 'large')[];
   services: [];
+  company_logo: string;
 };
 
 
@@ -98,10 +109,11 @@ export default function GroomingPage() {
               Large Dogs
             </button>
           </section>
-
+<div className='double-page-split'>
           <section className="services-grid">
             {displayServices.map((service, index) => (
               <div key={index} className="service-card">
+                <img src={service.company_logo} alt={service.business_name} />
                 <h3 className="business-name">{service.business_name}</h3>
                 <div className="service-price-duration">
                   <span className="service-price">{service.address}</span>
@@ -128,6 +140,9 @@ export default function GroomingPage() {
               </div>
             ))}
           </section>
+
+          <BusinessMap businesses={displayServices} /> {/* Pass the listing as an array */}
+          </div>
         </div>
       </main>
 

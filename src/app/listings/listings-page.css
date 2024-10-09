@@ -117,9 +117,13 @@
   
   /* Services grid styles */
   .services-grid {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2rem; */
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1; 
   }
   
   @media (min-width: 768px) {
@@ -332,9 +336,9 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     width: 100%;
 }
 
@@ -414,4 +418,13 @@ button:hover {
 
 .react-datepicker {
     width: 242px;
+}
+.double-page-split {
+    display: flex;
+}
+.leaflet-container{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1; 
 }

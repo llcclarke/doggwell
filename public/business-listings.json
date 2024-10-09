@@ -2,11 +2,14 @@
       {
         "business_id": 1,
         "business_name": "Dog Business 2",
-        "address": "58 Hermannstraße, 12051, Neukölln, Berlin",
+        "address": "Potsdamer Platz 1, 10785 Berlin",
+        "lat":52.5096,
+        "long":13.3769,
         "description": "Basic grooming service for dogs over 35 pounds",
         "languages": ["English", "German", "Woof"],
         "sizes": ["large", "small"],
-        "services":["Relaxing Bath", "Blow Dry", "Nail Trim", "Ear Cleaning"]
+        "services":["Relaxing Bath", "Blow Dry", "Nail Trim", "Ear Cleaning"],
+        "company_logo": "/images/business1logo.jpg"
       }
     
     ]
