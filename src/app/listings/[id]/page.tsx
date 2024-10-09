@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import { notFound } from 'next/navigation';
 
 type Listing = {
@@ -29,10 +28,6 @@ type ListingProps = {
 const ListingPage: React.FC<ListingProps> = async ({ params }) => {
   const listings = await fetchListings();
   const listing = listings.find((listing) => listing.business_id.toString() === params.id);
-  const router = useRouter();
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
   if (!listing) {
     return notFound();
   }
