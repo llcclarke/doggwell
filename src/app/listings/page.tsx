@@ -23,7 +23,6 @@ export default function GroomingPage() {
   // Fetch services data from the JSON file
   useEffect(() => {
     const fetchServices = async () => {
-      console.log('API URL:', process.env.NEXT_PUBLIC_API_URL);
       try {
         const response = await fetch('/business-listings.json');
         const data: GroomingServiceProps[] = await response.json();
