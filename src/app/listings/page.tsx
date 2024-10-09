@@ -47,7 +47,7 @@ type GroomingServiceProps = {
 export default function GroomingPage() {
   const [services, setServices] = useState<GroomingServiceProps[]>([]); 
   const [selectedSize, setSelectedSize] = useState<'all' | 'small' | 'medium' | 'large'>('all');
-  const [selectedService, setSelectedService] = useState<ServiceTitle | null>(null);
+  const [selectedService, setSelectedService] = useState<'all' | ServiceTitle >('all');
   // const [open, setOpen] = useState(false);
   // Fetch services data from the JSON file
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function GroomingPage() {
   // CHANGED: Filter services by size within each service object
   const displayServices = services.filter(service => {
     const sizeMatch = selectedSize === 'all' || service.sizes.includes(selectedSize);
-    const serviceMatch = !selectedService || service.services.some(s => s.title === selectedService);
+    const serviceMatch = selectedService === 'all' || service.services.some(s => s.title === selectedService);
     return sizeMatch && serviceMatch;
   });
 
@@ -135,12 +135,12 @@ export default function GroomingPage() {
             <div className="filter-group">
               <h3>Filter by Service:</h3>
               <div className="filter-buttons">
-                {/* <button 
+                <button 
                   className={`filter-button ${selectedService === 'all' ? 'active' : ''}`}
                   onClick={() => setSelectedService('all')}
                 >
                   All Services
-                </button> */}
+                </button>
                 <button 
                   className={`filter-button ${selectedService === 'Haircut' ? 'active' : ''}`}
                   onClick={() => setSelectedService('Haircut')}
@@ -185,6 +185,9 @@ export default function GroomingPage() {
                 </div>
                 <div className="service-price-duration">
                   <span className="service-price">{service.address}</span>
+                  <Link href={`/listings/${service.business_id}`}>
+              <button>View & Book</button>
+            </Link>
                 </div>
                 <p className="service-description">{service.description}</p>
 
@@ -193,24 +196,25 @@ export default function GroomingPage() {
       <ul className="service-includes">
         {service.services.map((service, index) => (
           <li key={index}>
-            <h3>{service.title}</h3> {/* Use lowercase title */}
+            <div className="title-and-description">
+            <p>{service.title}</p> {/* Use lowercase title */}
             <p>{service.description}</p> {/* Use lowercase description */}
-            <p>Minimum Time: {service.minimum_time} minutes</p> {/* Use lowercase minimum_time */}
+            </div>
+            <div className="time-and-price">
+            <p>Duration: {Math.ceil(service.minimum_time / 10) * 10} minutes</p> {/* Use lowercase minimum_time */}
             <p>Price: ${service.price}</p> {/* Use lowercase price */}
+            </div>
           </li>
         ))}
       </ul>
                 <ul className="service-includes">
-                  Languages spoken
+                  <strong>Languages spoken </strong>
                   {service.languages.map((item, idx) => (
                     <li key={idx} className="service-include-item">
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link href={`/listings/${service.business_id}`}>
-              <button>View & Book</button>
-            </Link>
               </div>
             ))}
           </section>

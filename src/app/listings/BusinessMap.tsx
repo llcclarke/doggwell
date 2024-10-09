@@ -40,7 +40,7 @@ const BusinessMap: React.FC<BusinessMapProps> = ({ businesses }) => {
 
   
   return (
-    <MapContainer center={center} zoom={13} style={{ height: '400px', width: '100%' }}>
+    <MapContainer center={center} zoom={12} style={{ height: '400px', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
