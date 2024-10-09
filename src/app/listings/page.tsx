@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import './listings-page.css';
 
+
 // Define the type for a grooming service
 type GroomingServiceProps = {
   business_id: number;

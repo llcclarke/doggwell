@@ -1,5 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import CalendarBooking from './CalendarBooking.tsx';
+import '../listings-page.css';
 
 type Listing = {
   business_id: number;
@@ -33,18 +35,24 @@ const ListingPage: React.FC<ListingProps> = async ({ params }) => {
   }
 
   return (
-    <div>
-      <h1>{listing.business_name}</h1>
-      <p>{listing.address}</p>
-      <p>{listing.description}</p>
-      <p>Languages: {listing.languages.join(', ')}</p>
-      <h2>Services Offered:</h2>
-      <ul>
-        {listing.services.map((service, index) => (
-          <li key={index}>{service}</li>
-        ))}
-      </ul>
+    <div className="container">
+      <div className="business-details">
+    <h1>{listing.business_name}</h1>
+    <p>{listing.address}</p>
+    <p>{listing.description}</p>
+    <p>Languages: {listing.languages.join(', ')}</p>
+    <p>Sizes: {listing.sizes.join(', ')}</p>
+    
+    <h2>Services Offered:</h2>
+    <ul>
+      {listing.services.map((service, index) => (
+        <li key={index}>{service}</li>
+      ))}
+    </ul>
     </div>
+    
+    <CalendarBooking businessId={listing.business_id} />
+  </div>
   );
 };
 
