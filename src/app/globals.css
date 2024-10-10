@@ -30,3 +30,27 @@ svg {
   max-width: 100PX;
   HEIGHT: AUTO;
 }
+
+
+.footer {
+  background-color: #3b82f6;
+  color: #fff;
+  padding: 1.5rem 0
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center
+}
+
+.footer-tagline {
+  font-size: 1.125rem;
+  font-weight: 500
+}
+
+.footer-subtitle {
+  margin-top: .5rem;
+  opacity: .75
+}
